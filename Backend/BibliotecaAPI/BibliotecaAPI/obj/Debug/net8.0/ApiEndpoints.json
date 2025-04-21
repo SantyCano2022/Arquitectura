@@ -1,0 +1,148 @@
+[
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.DevolucionController",
+    "Method": "RegistrarDevolucion",
+    "RelativePath": "api/Devolucion/RegistrarDevolucion/{idPrestamo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPrestamo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.MaterialController",
+    "Method": "ActualizarMaterial",
+    "RelativePath": "api/Material/ActualizarMaterial",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "materialDto",
+        "Type": "BibliotecaAPI.Dtos.MaterialActualizarDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.MaterialController",
+    "Method": "ObtenerMateriales",
+    "RelativePath": "api/Material/ObtenerMateriales",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.MaterialController",
+    "Method": "RegistrarMaterial",
+    "RelativePath": "api/Material/RegistrarMaterial",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BibliotecaAPI.Dtos.CrearMaterialDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.PrestamoController",
+    "Method": "ObtenerHistorial",
+    "RelativePath": "api/Prestamo/ObtenerHistorial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.PrestamoController",
+    "Method": "RegistrarPrestamo",
+    "RelativePath": "api/Prestamo/RegistrarPrestamo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BibliotecaAPI.Dtos.CrearPrestamoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.RolController",
+    "Method": "ObtenerRoles",
+    "RelativePath": "api/Rol/ObtenerRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.TipoMaterialController",
+    "Method": "ObtenerTipoMaterial",
+    "RelativePath": "api/TipoMaterial/ObtenerTipoMaterial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.UsuarioController",
+    "Method": "EliminarUsuario",
+    "RelativePath": "api/Usuario/EliminarUsuario/{idusuario}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idusuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.UsuarioController",
+    "Method": "ObtenerUsuarios",
+    "RelativePath": "api/Usuario/ObtenerUsuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BibliotecaAPI.Controllers.UsuarioController",
+    "Method": "RegistrarUsuario",
+    "RelativePath": "api/Usuario/RegistrarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BibliotecaAPI.Dtos.CrearUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

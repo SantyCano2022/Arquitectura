@@ -1,0 +1,319 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BibliotecaAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Devolucion/RegistrarDevolucion/{idPrestamo}": {
+      "post": {
+        "tags": [
+          "Devolucion"
+        ],
+        "parameters": [
+          {
+            "name": "idPrestamo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Material/ObtenerMateriales": {
+      "get": {
+        "tags": [
+          "Material"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Material/RegistrarMaterial": {
+      "post": {
+        "tags": [
+          "Material"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearMaterialDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearMaterialDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearMaterialDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Material/ActualizarMaterial": {
+      "put": {
+        "tags": [
+          "Material"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaterialActualizarDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaterialActualizarDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaterialActualizarDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Prestamo/RegistrarPrestamo": {
+      "post": {
+        "tags": [
+          "Prestamo"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearPrestamoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearPrestamoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearPrestamoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Prestamo/ObtenerHistorial": {
+      "get": {
+        "tags": [
+          "Prestamo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Rol/ObtenerRoles": {
+      "get": {
+        "tags": [
+          "Rol"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TipoMaterial/ObtenerTipoMaterial": {
+      "get": {
+        "tags": [
+          "TipoMaterial"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/ObtenerUsuarios": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/RegistrarUsuario": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearUsuarioDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearUsuarioDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearUsuarioDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/EliminarUsuario/{idusuario}": {
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idusuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CrearMaterialDto": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadRegistrada": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidadActual": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoMaterialId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CrearPrestamoDto": {
+        "type": "object",
+        "properties": {
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "materialId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidadPrestada": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CrearUsuarioDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "cedula": {
+            "type": "string",
+            "nullable": true
+          },
+          "rolId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaterialActualizarDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

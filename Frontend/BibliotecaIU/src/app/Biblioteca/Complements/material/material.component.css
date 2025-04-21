@@ -1,0 +1,100 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .btn-new-config {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  
+  .titulo {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+  }
+  
+  p-button {
+    button {
+      background-color: #007ad9;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+  
+    button:hover {
+      background-color: #005fa3;
+    }
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabla-concepto .p-datatable {
+    font-size: 0.9rem;
+  }
+  
+  .p-datatable th {
+    background-color: #007ad9;
+    color: white;
+    text-align: center;
+  }
+  
+  .p-datatable td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bi-pencil-square {
+    color: #007ad9;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .bi-pencil-square:hover {
+    color: #004e80;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .buscador {
+    border-radius: 8px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    width: 200px;
+    transition: border-color 0.3s;
+  }
+  
+  .buscador:focus {
+    outline: none;
+    border-color: #007ad9;
+  }
+  

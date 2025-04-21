@@ -1,0 +1,118 @@
+
+<div class="container">
+  <div class="btn-new-config mt4 mb-3">
+    <h6 class="titulo"><b>{{titulo}}</b></h6>
+    <p-button type="button" label="Agregar Usuario" (onClick)="redirectToAgregarUsuario()" />
+    <p-button type="button" label="Agregar Material" (onClick)="redirectToAgregarMaterial()" />
+    <p-button type="button" label="Solicitar Préstamo" (onClick)="showSolicitarPrestamoDialog()" />
+  </div>
+  <hr>
+  <br>
+  <div class="card">
+    <div class="tabla-concepto">
+      <p-table #dt [value]="historial" [paginator]="true" [rows]="rowsPerPage" [scrollable]="true"
+        [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['nombreUsuario', 'tituloMaterial', 'cantidadPrestada', 'fechaPrestamo', 'fechaDevolucion']"
+        currentPageReportTemplate=" página  {first}  registros  {totalRecords}"
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [rowsPerPageOptions]="[5, 10, 25, 50]">
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Título del Material</th>
+            <th>Cantidad Prestada</th>
+            <th>Fecha de Préstamo</th>
+            <th>Fecha de Devolución</th>
+            <th>Acciones</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>{{ item.nombreUsuario }}</td>
+            <td>{{ item.tituloMaterial }}</td>
+            <td>{{ item.cantidadPrestada }}</td>
+            <td>{{ item.fechaPrestamo }}</td>
+            <td>{{ item.fechaDevolucion || 'Pendiente' }}</td>
+            <td>
+              <p-button icon="pi pi-eye" (onClick)="showDetails(item)" />
+              <p-button 
+                *ngIf="!item.fechaDevolucion" 
+                label="Devolver" 
+                (onClick)="registrarDevolucion(item.prestamoId)" 
+                styleClass="p-button-success ml-2" />
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="paginatorright">
+          <div class="search-container">
+            <span class="p-input-icon-right">
+              <i class="pi pi-search icono"></i>
+              <input pInputText type="text" class="buscador" placeholder="Buscar"
+                    (input)="dt?.filterGlobal($any($event.target).value, 'contains')" />
+            </span>
+          </div>
+        </ng-template>
+
+      </p-table>
+    </div>
+
+  </div>
+</div>
+
+<p-dialog header="Detalle del Préstamo" [(visible)]="displayModal" [modal]="true" [style]="{'height': '500px', 'width': '40vw'}" [responsive]="true">
+  <div *ngIf="selectedItem">
+    <p><strong>Nombre del Usuario:</strong> {{ selectedItem.nombreUsuario }}</p>
+    <p><strong>Rol:</strong> {{ selectedItem.rolUsuario || 'No disponible' }}</p>
+    <p><strong>Título del Material:</strong> {{ selectedItem.tituloMaterial }}</p>
+    <p><strong>Tipo de Material:</strong> {{ selectedItem.tipoMaterial || 'No disponible' }}</p>
+    <p><strong>Cantidad Prestada:</strong> {{ selectedItem.cantidadPrestada }}</p>
+    <p><strong>Fecha de Préstamo:</strong> {{ selectedItem.fechaPrestamo }}</p>
+    <p><strong>Fecha de Devolución:</strong> {{ selectedItem.fechaDevolucion || 'Pendiente' }}</p>
+  </div>
+</p-dialog>
+
+<p-dialog header="Solicitar Préstamo" [(visible)]="displayPrestamoDialog" [modal]="true" [style]="{width: '30vw'}">
+  <form [formGroup]="prestamoForm" (ngSubmit)="solicitarPrestamo()">
+    <div class="p-fluid">
+      <div class="p-field mb-3">
+        <label for="usuario">Usuario</label>
+        <p-dropdown 
+          [options]="usuarios" 
+          formControlName="usuarioId" 
+          optionLabel="nombre"
+          optionValue="id"
+          placeholder="Seleccionar Usuario" 
+          [filter]="true">
+        </p-dropdown>
+      </div>
+
+      <div class="p-field mb-3">
+        <label for="material">Material</label>
+        <p-dropdown
+          [options]="materiales" 
+          formControlName="materialId" 
+          optionLabel="titulo" 
+          optionValue="id"
+          placeholder="Seleccionar Material" 
+          [filter]="true">
+        </p-dropdown>
+      </div>
+
+      <div class="p-field mb-3">
+        <label for="cantidad">Cantidad Prestada</label>
+        <input pInputText type="number" formControlName="cantidadPrestada" placeholder="Cantidad" />
+      </div>
+
+    </div>
+    
+    <div class="p-dialog-footer">
+      <p-button label="Cancelar" icon="pi pi-times" (onClick)="closePrestamoDialog()"></p-button>
+      <p-button label="Solicitar" icon="pi pi-check" type="submit" [disabled]="prestamoForm.invalid"></p-button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-toast position="top-right"></p-toast>
